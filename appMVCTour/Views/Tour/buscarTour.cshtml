@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "buscarTour";
+}
+
+<h2>buscarTour</h2>
+@*Se puede tener en el layaou*@
+<div id="cargaImagen" style="display:none">
+    <img src="~/Content/img/978.gif" />
+</div>
+
+@*Accion, nombre del controlador*@
+@using (Ajax.BeginForm("buscarTour", "Tour", new AjaxOptions
+{
+    HttpMethod = "Get", @*Metodo HTTP para la solicitud*@
+UpdateTargetId = "resultado",@*Id del elemento donde se carga la actualizacion*@
+InsertionMode = InsertionMode.Replace,@*Forma de inertar la actualizacion*@
+    LoadingElementId= "cargaImagen"
+}
+
+  ))
+
+{
+    @*Envia dentro del servidor*@
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.TextBox("busqueda", "", new { @class = "form-control", @placeholder = "Buscar por" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Buscar" class="btn btn-success" />
+        </div>
+    </div>
+
+}
+
+<div id="resultado">
+
+</div>
+

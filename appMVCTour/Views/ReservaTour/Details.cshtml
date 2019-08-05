@@ -1,0 +1,66 @@
+﻿@model appMVCTour.Models.reserva_tour
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>reserva_tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tour.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tour.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidadNinos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadNinos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidadAdultos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidadAdultos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costoTotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costoTotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaReserva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaReserva)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idReserva }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

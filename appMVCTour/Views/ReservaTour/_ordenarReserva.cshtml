@@ -1,0 +1,24 @@
+﻿@model IEnumerable<appMVCTour.Models.reserva_tour>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaReserva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tour.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cliente.nombre)
+            @Html.DisplayFor(modelItem => item.cliente.apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.costoTotal)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.idReserva }) |
+            @Html.ActionLink("Details", "Details", new { id = item.idReserva }) |
+        </td>
+    </tr>
+}

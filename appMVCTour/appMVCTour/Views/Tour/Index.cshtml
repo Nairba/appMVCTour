@@ -1,0 +1,44 @@
+﻿@model IEnumerable<appMVCTour.Models.tour>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nuevo", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioNinos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioAdultos)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioNinos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioAdultos)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idTour }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.idTour }) 
+        </td>
+    </tr>
+}
+
+</table>

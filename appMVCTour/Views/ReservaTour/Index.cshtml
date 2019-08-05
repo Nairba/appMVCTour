@@ -1,0 +1,87 @@
+﻿@model IEnumerable<appMVCTour.Models.reserva_tour>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaReserva)
+                @Ajax.ActionLink("Asc", //Texto para el usuario
+           "ordenarReserva",//Accion a llamr
+
+           new
+           {
+               criterio = "asc"
+           },// Parametro a enviar
+           new AjaxOptions
+           {
+               UpdateTargetId = "resultado",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "Get"
+           }
+           )
+                @Ajax.ActionLink("Des", //Texto para el usuario
+           "ordenarReserva",//Accion a llamar
+
+           new
+           {
+               criterio = "des"
+           },// Parametro a enviar
+           new AjaxOptions
+           {
+               UpdateTargetId = "resultado",
+               InsertionMode = InsertionMode.Replace,
+               HttpMethod = "Get"
+           }
+           )
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tour)
+            </th>
+            @*  *@
+            <th>
+                @Html.DisplayNameFor(model => model.cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.costoTotal)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="resultado">
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaReserva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tour.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cliente.nombre)
+            @Html.DisplayFor(modelItem => item.cliente.apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.costoTotal)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idReserva }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idReserva }) |
+        </td>
+    </tr>
+}
+    </tbody>
+
+</table>
